@@ -33,7 +33,7 @@ jobs:
           cache-dependency-path: src/yarn.lock
 
       - run: |
-          cd src
+          cd /home/runner/work/TYPE/TYPE/src
           yarn
           yarn build
 
@@ -53,6 +53,8 @@ jobs:
 
       - name: Build and push (arm64 only)
         run: |
+          cd /home/runner/work/TYPE/TYPE
+          cp -r /home/runner/work/TYPE/TYPE/src/build dist
           IMAGE_NAME=$(echo $IMAGE_NAME | tr '[A-Z]' '[a-z]')
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
@@ -65,3 +67,4 @@ jobs:
             --file Dockerfile \
             --tag $IMAGE_NAME:$VERSION \
             --push .
+          docker push $IMAGE_NAME:$VERSION
