@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: liona/type
-  DOCKER_USERNAME: liona
+  IMAGE_NAME: mygmailverifier/qwertt-type
+  DOCKER_USERNAME: mygmailverifier
 
 jobs:
   build_docker_image:
