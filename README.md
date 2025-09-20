@@ -50,6 +50,7 @@ Gitee Pages: https://kaiyiwing.gitee.io/qwerty-learner/
 <hr> 
 
 ## 🥢 使用方法
+## 注意这是编译的Linux-arm64版本的dockers镜像，主要为了运行在香橙派等arm设备上
 
 ```shell
 docker pull mygmailverifier/qwertt-type:latest
